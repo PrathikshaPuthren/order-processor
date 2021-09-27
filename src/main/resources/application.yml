@@ -1,0 +1,20 @@
+api:
+  name: order_processor
+  version: v1
+server:
+  servlet:
+    context-path: /order_processor/v1/
+  port: 8405
+---
+spring:
+  data:
+    mongo:
+      repositories:
+        enabled: true
+    mongodb:
+      uri: mongodb+srv://dbAdmin:dbPassword@cluster0.jg3sn.mongodb.net/orders
+      database: orders
+kafka:
+  topic: orderStatus
+  consumerGroupId: group_id
+  server: localhost:9092
